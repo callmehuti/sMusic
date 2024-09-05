@@ -1,0 +1,39 @@
+.headerContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  // padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 7rem;
+  svg {
+    font-size: 3rem;
+    color: white;
+  }
+
+  .dropDownMenu {
+    position: relative;
+    padding: 1rem 0;
+
+    .children {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 15rem;
+      padding: 1rem;
+      text-align: center;
+      color: white;
+      background: #282828;
+      display: none;
+      div {
+        padding: 1rem;
+      }
+    }
+
+    .active {
+      display: block;
+    }
+  }
+}

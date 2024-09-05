@@ -1,0 +1,18 @@
+.itemContainer {
+  display: flex;
+  align-items: center;
+  margin: 4rem 0;
+  gap: 2rem;
+
+  img {
+    width: 10rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    width: 35rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
