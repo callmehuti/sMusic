@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
 function Player() {
-  return <div>Player</div>;
+  return <div className='h-full bg-purple-600'>Player</div>
 }
 
-export default Player;
+export default Player

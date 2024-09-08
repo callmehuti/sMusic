@@ -1,0 +1,82 @@
+.itemContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 2rem;
+  width: 100%;
+  overflow: hidden;
+  img {
+    width: 10rem;
+  }
+  p {
+    margin-bottom: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+/*Smart phone nhỏ*/
+@media screen and (min-width: 240px) {
+  .itemContainer {
+    .pos {
+      display: none;
+    }
+    .title {
+      width: 70%;
+    }
+    .image {
+      width: 30%;
+    }
+  }
+}
+/*Iphone(480 x 640) trở lên*/
+@media screen and (min-width: 320px) {
+  .itemContainer {
+  }
+}
+/*Tablet nhỏ(480 x 640) trở lên*/
+@media screen and (min-width: 480px) {
+  .itemContainer {
+    .title {
+      width: auto;
+      width: 70%;
+    }
+    .image {
+      width: auto;
+      width: 20%;
+    }
+    .pos {
+      width: 5%;
+      display: block;
+    }
+  }
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (min-width: 768px) {
+  .itemContainer {
+    .title {
+      width: auto;
+      width: 75%;
+    }
+    .image {
+      width: auto;
+      width: 15%;
+    }
+    .pos {
+      width: 5%;
+      display: block;
+    }
+  }
+}
+/*Ipad ngang(1024 x 768)*/
+@media screen and (min-width: 1024px) {
+  .itemContainer {
+    .title {
+      width: auto;
+    }
+    .image {
+      width: auto;
+    }
+  }
+}
