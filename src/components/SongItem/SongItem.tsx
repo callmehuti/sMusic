@@ -20,7 +20,7 @@ function SongItem(props: IProp) {
         <img src={props.imgPath} alt='' />
       </div>
       <div className={styles.title}>
-        <p>sondev</p>
+        <p>sondev1</p>
         <p>{props.channel}</p>
       </div>
     </div>
