@@ -1,22 +1,20 @@
-import { Outlet } from "react-router-dom";
-import Header from "./Header";
-import styles from "./layout.module.scss";
-import Player from "../Player/Player";
-import Nav from "../Nav/Nav";
+import Header from './Header'
+import styles from '@styles/Layout.module.scss'
+import Player from '@components/Player/Player'
+import Nav from '@components/Nav/Nav'
+import { Outlet } from 'react-router-dom'
 
-export default function Layout() {
-  return (
-    <div className={styles.layoutContainer}>
-      <Header />
-      <div style={{ height: "90vh" }}>
-        <Outlet />
-      </div>
-      <div style={{ height: "5vh" }}>
-        <Player />
-      </div>
-      <div style={{ height: "5vh" }}>
-        <Nav />
-      </div>
+const Layout = () => (
+  <div className={styles.layoutContainer}>
+    <Header />
+    <div style={{ height: '82vh', overflow: 'hidden' }}>{<Outlet />}</div>
+    <div style={{ height: '8vh' }}>
+      <Player />
     </div>
-  );
-}
+    <div style={{ height: '10vh' }}>
+      <Nav />
+    </div>
+  </div>
+)
+
+export default Layout

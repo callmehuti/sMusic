@@ -1,5 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit";
-import userSlice from './slides/user.slice';
+import { configureStore } from '@reduxjs/toolkit'
+import userSlice from './slides/user.slice'
 
 const store = configureStore({
   reducer: {
@@ -8,4 +8,7 @@ const store = configureStore({
   devTools: true
 })
 
-export default store;
+export default store
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

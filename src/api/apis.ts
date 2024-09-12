@@ -1,17 +1,53 @@
-import { AxiosResponse } from "axios";
-import api from "./config.api";
+import api from './config.api'
 
 interface ITrendingRes {
-  nextPageToken?: string,
+  nextPageToken?: string
   prevPageToken?: string
+  items: ITrendingItem[]
+  pageInfo: {
+    totalResults: number
+    resultsPerPage: number
+  }
 }
 
-export const getTrending = async (pageToken = ''): Promise<AxiosResponse<ITrendingRes>> => {
-  const endpoint = `/getYoutubeTrending`;
-  const res = await api.get<ITrendingRes>(endpoint, {
-    params: {
-      pageToken
+interface ITrendingItem {
+  id: string
+  snippet: {
+    title: string
+    channelTitle: string
+    thumbnails: {
+      medium: {
+        url: string
+      }
     }
-  });
-  return res;
+  }
+}
+
+interface IPageWithToken {
+  [key: number]: string
+}
+
+const pageWithToken: IPageWithToken = {}
+
+export const getTrending = async (page = 0): Promise<ITrendingRes | null> => {
+  try {
+    const pageToken = pageWithToken[page] || ''
+    const endpoint = '/getYoutubeTrending'
+    const res = await api.get(endpoint, {
+      params: {
+        pageToken
+      }
+    })
+    if (res?.data?.result?.prevPageToken) {
+      pageWithToken[page - 1] = res.data.result.prevPageToken
+    }
+
+    if (res?.data?.result?.nextPageToken) {
+      pageWithToken[page + 1] = res.data.result.nextPageToken
+    }
+    console.log(page, pageWithToken)
+    return res.data.result
+  } catch (error) {
+    return null
+  }
 }

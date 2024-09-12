@@ -1,21 +1,20 @@
 .trendingContainer {
-  padding: 2.7rem;
-
+  overflow: hidden;
+  height: 100%;
   .trendingHeader {
+    padding: 0 1.5rem;
     display: flex;
     align-items: center;
     gap: 2rem;
-
+    height: 10%;
     .trendingBtn {
       display: flex;
       align-items: center;
       gap: 1rem;
-
       .clickable {
         background: black;
         pointer-events: all;
       }
-
       span {
         display: flex;
         align-items: center;
