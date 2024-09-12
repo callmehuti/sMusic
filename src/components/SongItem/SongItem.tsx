@@ -1,17 +1,17 @@
-import styles from '@styles/SongItem.module.scss'
+import styles from '@styles/SongItem.module.scss';
 
 interface IProp {
-  pos?: number | string
-  imgPath: string
-  title: string
-  channel: string
-  pageNumber: number
+  pos?: number | string;
+  imgPath: string;
+  title: string;
+  channel: string;
+  pageNumber: number;
 }
 
 function SongItem(props: IProp) {
-  let pos = 0
+  let pos = 0;
   if (props?.pos) {
-    pos = Number(props?.pos) + props.pageNumber * 10
+    pos = Number(props?.pos) + props.pageNumber * 10;
   }
   return (
     <div className={styles.itemContainer}>
@@ -20,11 +20,11 @@ function SongItem(props: IProp) {
         <img src={props.imgPath} alt='' />
       </div>
       <div className={styles.title}>
-        <p>{props.title}</p>
+        <p>sondev1</p>
         <p>{props.channel}</p>
       </div>
     </div>
-  )
+  );
 }
 
-export default SongItem
+export default SongItem;

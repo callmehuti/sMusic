@@ -1,16 +1,16 @@
-import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
-import { getTrending } from '../api/apis'
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+import { getTrending } from '../api/apis';
 
 // icons
-import { MdArrowForwardIos, MdArrowBackIosNew } from 'react-icons/md'
+import { MdArrowForwardIos, MdArrowBackIosNew } from 'react-icons/md';
 
-import styles from '@styles/Trending.module.scss'
-import SongItem from '@components/SongItem/SongItem'
-import SkeletonSongItem from '@components/SongItem/SkeletonSongItem'
+import styles from '@styles/Trending.module.scss';
+import SongItem from '@components/SongItem/SongItem';
+import SkeletonSongItem from '@components/SongItem/SkeletonSongItem';
 
 function Trending() {
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(0);
 
   //avoid using useQuery() directly in your component, should be put in a custom hook for reuse later.
   const { data, isLoading } = useQuery({
@@ -20,7 +20,7 @@ function Trending() {
     gcTime: 120 * 1000,
     retry: 3,
     refetchOnWindowFocus: false
-  })
+  });
 
   return (
     <div className={styles.trendingContainer}>
@@ -30,8 +30,8 @@ function Trending() {
             className={data?.prevPageToken ? styles.clickable : ''}
             role={'prev'}
             onClick={() => {
-              if (page <= 0) return
-              setPage(page - 1)
+              if (page <= 0) return;
+              setPage(page - 1);
             }}
           >
             <MdArrowBackIosNew />
@@ -40,8 +40,8 @@ function Trending() {
             role={'next'}
             className={data?.nextPageToken ? styles.clickable : ''}
             onClick={() => {
-              if (data && page >= data.pageInfo.totalResults / data.pageInfo.resultsPerPage) return
-              setPage(page + 1)
+              if (data && page >= data.pageInfo.totalResults / data.pageInfo.resultsPerPage) return;
+              setPage(page + 1);
             }}
           >
             <MdArrowForwardIos />
@@ -63,12 +63,12 @@ function Trending() {
                 channel={item?.snippet?.channelTitle}
                 pageNumber={page}
               />
-            )
+            );
           })
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default Trending
+export default Trending;
